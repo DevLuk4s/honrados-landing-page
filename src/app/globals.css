@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-jj-black: #0a0a0a;
+  --color-jj-black-soft: #1a1a1a;
+  --color-jj-white: #fafafa;
+  --color-jj-gold: #d4af37;
+  --color-jj-gold-light: #f0d878;
+  --color-jj-gray: #a3a3a3;
+
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-display: ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), Arial, Helvetica, sans-serif;
+}
