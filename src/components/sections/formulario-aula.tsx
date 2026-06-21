@@ -20,6 +20,9 @@ export function FormularioAula() {
       .value;
     const email = (form.elements.namedItem("email") as HTMLInputElement)
       .value;
+    const modalidade = (
+      form.elements.namedItem("modalidade") as HTMLSelectElement
+    ).value;
 
     if (!nome || !telefone || !email) {
       setErro("Preencha todos os campos obrigatórios.");
@@ -27,7 +30,12 @@ export function FormularioAula() {
     }
 
     setErro("");
-    // TODO: integrar com backend / serviço de e-mail / WhatsApp API
+
+    const numeroAcademia = "557181653528"; // troque se mudar o número
+    const mensagem = `Olá! Quero agendar uma aula experimental.%0A%0ANome: ${nome}%0AWhatsApp: ${telefone}%0AE-mail: ${email}%0AModalidade: ${modalidade}`;
+    const urlWhatsapp = `https://wa.me/${numeroAcademia}?text=${mensagem}`;
+
+    window.open(urlWhatsapp, "_blank");
     setEnviado(true);
   }
 
@@ -63,8 +71,8 @@ export function FormularioAula() {
                 Recebemos sua solicitação!
               </h3>
               <p className="text-jj-gray text-sm">
-                Em breve nossa equipe vai entrar em contato para agendar sua
-                aula experimental.
+                Abrimos o WhatsApp para você confirmar o envio. Nossa equipe
+                vai entrar em contato para agendar sua aula experimental.
               </p>
             </div>
           ) : (
